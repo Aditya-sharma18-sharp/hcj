@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="tbl.css">
+    <title>Document</title>
+</head>
+<body>
+    
+        <h2>A basic HTML table</h2>
+
+<table id='hdr' class="f" style="width:100%">
+  <tr class="f">
+    <th class="f">Company</th>
+    <th class="f">Contact</th>
+    <th class="f">Country</th>
+  </tr>
+  <tr class="f">
+    <td id="cmpnyname" class="f"></td>
+    <td id="cntctname" class="f"></td>
+    <td  id="cntryname" class="f"></td>
+</tr>
+<tr  class="f" id="newtd">
+
+</tr>
+</table>
+<button id="bt" class="bt-new"> create New row</button>
+        
+<script>
+const cmpnyname = document.querySelector("#cmpnyname");
+const cntctname = document.querySelector("#cntctname");
+const cntryname = document.querySelector("#cntryname");
+cmpnyname.addEventListener('click',function(){
+cmpnyname.textContent= prompt("New Company Name");
+},false);
+
+cntctname.addEventListener('click',function(){
+cntctname.textContent = prompt("enter the contact name");
+},false);
+
+cntryname.addEventListener('click',function(){
+cntryname.textContent = prompt("enter the  Country name");
+},false);
+
+const btnwr = document.querySelector("#bt");
+const newtd = document.querySelector("#newtd");
+const hdr = document.querySelector("#hdr");
+btnwr.addEventListener('click', function () {
+            const newRow = document.createElement('tr');
+
+            const newCompanyCell = document.createElement('td');
+            newCompanyCell.className = 'f';
+            newCompanyCell.textContent = '';
+            newCompanyCell.id = 'cmpnyname';
+
+
+            const newContactCell = document.createElement('td');
+            newContactCell.className = 'f';
+            newContactCell.textContent = '';
+            newCompanyCell.id = 'cntctname';
+
+
+            const newCountryCell = document.createElement('td');
+            newCountryCell.className = 'f';
+            newCountryCell.textContent = '';
+            newCompanyCell.id = 'cntryname';
+
+
+            newRow.appendChild(newCompanyCell);
+            newRow.appendChild(newContactCell);
+            newRow.appendChild(newCountryCell);
+
+            hdr.appendChild(newRow);
+        });
+</script>
+</body>
+</html>
